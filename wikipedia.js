@@ -12,5 +12,39 @@ function startSearch(term){
     console.log(term);  //term sends the entire html form. uneeded
     var searchTerm = document.querySelector("#searchTerm").value;
     console.log(searchTerm);
+    callWiki(searchTerm)
+}
+
+function callWiki(searchTerm){
+    $.ajax({
+        url : "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm + "&format=json&callback=wikiCallback",
+        dataType : 'jsonp',
+        success : function(data){ 
+            console.log("success in call wiki");
+            console.log(data);
+        }
+    })
     
 }
+
+
+
+//  $.ajax({
+//                     url: 'http://twitter.com/status/user_timeline/padraicb.json?count=10',
+//                     dataType: 'jsonp',
+//                     success: function(dataWeGotViaJsonp){
+//                         var text = '';
+//                         var len = dataWeGotViaJsonp.length;
+//                         for(var i=0;i<len;i++){
+//                             twitterEntry = dataWeGotViaJsonp[i];
+//                             text += '<p><img src = "' + twitterEntry.user.profile_image_url_https +'"/>' + twitterEntry['text'] + '</p>'
+//                         }
+//                         $('#twitterFeed').html(text);
+//                     }
+//                 });
+
+
+
+
+
+//
