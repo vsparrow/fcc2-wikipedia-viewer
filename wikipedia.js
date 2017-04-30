@@ -7,3 +7,10 @@
 // app displays api results
 // user clicks a result and gets redirected to link in another tabs
 
+function startSearch(term){
+    console.log("startSearch called. ");
+    console.log(term);  //term sends the entire html form. uneeded
+    var searchTerm = document.querySelector("#searchTerm").value;
+    console.log(searchTerm);
+    
+}
