@@ -32,10 +32,10 @@ displayResuts   displays results received onto document, under div resultsParent
 
 // ****************************************************************************** startSearch
 function startSearch(term){
-    console.log("startSearch called. ");
+    // console.log("startSearch called. ");
     // console.log(term);  //term sends the entire html form. uneeded
     var searchTerm = document.querySelector("#searchTerm").value;
-    console.log(searchTerm);
+    // console.log(searchTerm);
     callWiki(searchTerm)
 }
 // ****************************************************************************** callWiki
@@ -44,9 +44,9 @@ function callWiki(searchTerm){
         url : "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm + "&format=json&callback=wikiCallback",
         dataType : 'jsonp',
         success : function(data){ 
-            console.log("success in call wiki");
+            // console.log("success in call wiki");
             // console.log(data);
-            console.log("Is array::" +Array.isArray(data) );
+            // console.log("Is array::" +Array.isArray(data) );
 
             // parseData(data);
             displayResults(data);
