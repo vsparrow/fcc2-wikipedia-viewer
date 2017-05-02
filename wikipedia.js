@@ -25,7 +25,7 @@ displayResuts   displays results received onto document, under div resultsParent
                 each result is in it's own div called result
                     title and text have their own divs, resultsTitle and resultsText
                     each div is clickable to open a new page to follow the link associated with it
-
+                if no results displays error message
 */
 
 
@@ -92,12 +92,18 @@ function callWiki(searchTerm){
 function displayResults(results){
     // for loop is used to iterate through results. results can be from 1 item up to 10 (default)
     var html = '';
-    for(var i=0;i<results[1].length;i++){
-        html += '<div class="result">';
-        html += '<a href="'+ results[3][i]  +'">'
-        html += '<div class="resultsTitle">'+results[1][i] +'</div>';
-        html += '<div class="resultsText">' + results[2][i] +'</div>';
-        html += '</a></div>'; //close link and div results
+    if(results[1].length === 0){
+        html += '<h1>No results found for ' + results[0] + '</h1><h1>Please try again</h1>';
+    }
+    else {
+        for(var i=0;i<results[1].length;i++){
+            html += '<div class="result">';
+            html += '<a href="'+ results[3][i]  +'">'
+            html += '<div class="resultsTitle">'+results[1][i] +'</div>';
+            html += '<div class="resultsText">' + results[2][i] +'</div>';
+            html += '</a></div>'; //close link and div results
+        
+        }    
     }
     document.querySelector("#resultsParent").innerHTML = html;
     
