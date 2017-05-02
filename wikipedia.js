@@ -1,12 +1,3 @@
-// user clicks search
-// user types in earch term
-// user presses enter (or button) to contiue
-// app reaches out to wikipedia api
-// api responds
-// app pareses api
-// app displays api results
-// user clicks a result and gets redirected to link in another tabs
-
 /*
 startSearch     called when user hits Submit on seach form
                 retrives search query from form, passes it to callWiki
@@ -32,23 +23,16 @@ displayResuts   displays results received onto document, under div resultsParent
 
 // ****************************************************************************** startSearch
 function startSearch(term){
-    // console.log("startSearch called. ");
-    // console.log(term);  //term sends the entire html form. uneeded
     var searchTerm = document.querySelector("#searchTerm").value;
-    // console.log(searchTerm);
     callWiki(searchTerm)
 }
 // ****************************************************************************** callWiki
 function callWiki(searchTerm){
     $.ajax({
-        url : "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm + "&format=json&callback=wikiCallback",
+        url : "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm + 
+            "&format=json&callback=wikiCallback",
         dataType : 'jsonp',
         success : function(data){ 
-            // console.log("success in call wiki");
-            // console.log(data);
-            // console.log("Is array::" +Array.isArray(data) );
-
-            // parseData(data);
             displayResults(data);
         },
         error: function (jqXHR, status, err) {
@@ -60,33 +44,6 @@ function callWiki(searchTerm){
         },
     })
 }
-// ****************************************************************************** parseData
-// This function may not be needed
-
-// function parseData(data){
-//     console.log("parseData");
-//     console.log(data);
-    
-//     console.log("******** data[0] **************************")
-//     // console.log(data[0]);
-//     //data[0] is the search term wikipedia used
-//     //type String
-//     console.log("******** data[1] **************************")
-//     // console.log(data[1]);
-//     //data[1] is a lsit of article titles that were matched
-//     //type Array, each element is a String
-//     console.log("******** data[2] **************************")
-//     // console.log(data[2]);
-//     //data[2] is a list of synopsis of each article
-//     //type array, each element is a String
-//     console.log("******** data[3] **************************")
-//     // console.log(data[3]);    
-//     //data[3] is a list of links to each article
-//     //type array, each element is a String
-//     displayResults(data);
-    
-// }
-
 // ****************************************************************************** displayResults
 
 function displayResults(results){
@@ -105,12 +62,10 @@ function displayResults(results){
             html += '<div class="resultTitle">'+results[1][i] +'</div>';
             html += '<div class="resultText">' + results[2][i] +'</div>';
             html += '</a></div>'; //close link and div results
-        
         }    
     }
     
     document.querySelector("#resultsParent").innerHTML = html;
     document.querySelector("#randomParent").innerHTML = "";
     document.querySelector("#searchTerm").value = "";
-    
 }
