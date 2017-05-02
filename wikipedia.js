@@ -111,5 +111,6 @@ function displayResults(results){
     
     document.querySelector("#resultsParent").innerHTML = html;
     document.querySelector("#randomParent").innerHTML = "";
+    document.querySelector("#searchTerm").value = "";
     
 }
