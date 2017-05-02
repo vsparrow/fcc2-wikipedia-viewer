@@ -93,7 +93,8 @@ function displayResults(results){
     // for loop is used to iterate through results. results can be from 1 item up to 10 (default)
     var html = '';
     if(results[1].length === 0){
-        html += '<h1>No results found for ' + results[0] + '</h1><h1>Please try again</h1>';
+        html += '<div class="result resultError"><h1>No results found for ' + results[0] + 
+        '</h1><h1>Please try again</h1></div>';
     }
     else {
         for(var i=0;i<results[1].length;i++){

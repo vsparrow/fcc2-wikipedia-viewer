@@ -1,3 +1,18 @@
+#search {
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 20px;
+    
+}
+
+#searchTerm {
+    width: 84%;
+} 
+#searchButton {
+    width: 15%;
+}
+
 .result {
     /*background : #F5DEB3;*/
     border-radius: 25px;
@@ -16,6 +31,10 @@
     font-size: 1.5em;
 }
 
+.resultError {
+    text-align: center;
+    border: 2px solid red;
+}
 
 @media  (max-width: 450px) {
     .resultText {

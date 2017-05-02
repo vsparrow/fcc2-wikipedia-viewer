@@ -18,20 +18,25 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">.
   </head>
   <body>
-
+ 
     <div class="container-fluid">
-        <div id="random">
-            <a href="https://en.wikipedia.org/wiki/Special:Random">Click Here For A Random Article</a>
-        </div>
-        <div id="search">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div id="search" class="col-md-6">
             <form action="javascript:;" onsubmit="startSearch(this)">
+              
                 <input type="text" id="searchTerm" name="search" placeholder="What would you like to search?"/>
-                <input type="submit" value="Submit"/>
+                <input type="submit" id="searchButton" value="Submit"/>
+                
             </form>
         </div>
+      </div>  
+        
         <div class="row">
           <div id="resultsParent" class="col-xs-10 col-xs-offset-1  ">
-          
+            <div id="random">
+              <a href="https://en.wikipedia.org/wiki/Special:Random">Click Here For A Random Article</a>
+            </div>
           </div>  
         </div>
 
@@ -40,11 +45,6 @@
 
 
 
-<br>User Story: I can search Wikipedia entries in a search box and see the resulting Wikipedia entries.
-<br>User Story: I can click a button to see a random Wikipedia entry.
-<br>Hint #1: Here's a URL you can use to get a random Wikipedia article: .
-<br>Hint #2: Here's an entry on using Wikipedia's API: https://www.mediawiki.org/wiki/API:Main_page.
-  
   </body>
 </html>
 
