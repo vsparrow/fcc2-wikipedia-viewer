@@ -42,6 +42,16 @@
     border: 2px solid red;
 }
 
+
+@media  (max-width: 849px) {
+    #searchTerm {
+        width: 100%;
+    } 
+    #searchButton {
+        width: 100%;
+    }
+}
+
 @media  (max-width: 450px) {
     .resultText {
         display: none;
