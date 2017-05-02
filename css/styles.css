@@ -13,6 +13,12 @@
     width: 15%;
 }
 
+#random {
+    text-align: center;
+    font-size: 2em;
+}
+
+
 .result {
     /*background : #F5DEB3;*/
     border-radius: 25px;
