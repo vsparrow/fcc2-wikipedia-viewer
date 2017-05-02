@@ -54,6 +54,8 @@ function callWiki(searchTerm){
     })
 }
 // ****************************************************************************** parseData
+// This function may not be needed
+
 function parseData(data){
     console.log("parseData");
     console.log(data);
@@ -74,7 +76,22 @@ function parseData(data){
     // console.log(data[3]);    
     //data[3] is a list of links to each article
     //type array, each element is a String
-    
+    displayResults(data);
     
 }
 
+// ****************************************************************************** displayResults
+
+function displayResults(results){
+    // for loop is used to iterate through results. results can be from 1 item up to 10 (default)
+    var html = '';
+    for(var i=0;i<results[1].length;i++){
+        html += '<div class="results">';
+        html += '<a href="'+ results[3][i]  +'">'
+        html += '<div class="resultsTitle">'+results[1][i] +'</div>';
+        html += '<div class="resultsText">' + results[2][i] +'</div>';
+        html += '</a></div>'; //close link and div results
+    }
+    document.querySelector("#resultsParent").innerHTML = html;
+    
+}
