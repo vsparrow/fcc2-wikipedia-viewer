@@ -15,3 +15,14 @@
 .resultText {
     font-size: 1.5em;
 }
+
+
+@media  (max-width: 450px) {
+    .resultText {
+        display: none;
+    }
+    
+    .resultTitle {
+        text-align: center;
+    }
+}
