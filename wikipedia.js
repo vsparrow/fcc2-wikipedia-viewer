@@ -99,8 +99,8 @@ function displayResults(results){
         for(var i=0;i<results[1].length;i++){
             html += '<div class="result">';
             html += '<a href="'+ results[3][i]  +'">'
-            html += '<div class="resultsTitle">'+results[1][i] +'</div>';
-            html += '<div class="resultsText">' + results[2][i] +'</div>';
+            html += '<div class="resultTitle">'+results[1][i] +'</div>';
+            html += '<div class="resultText">' + results[2][i] +'</div>';
             html += '</a></div>'; //close link and div results
         
         }    
