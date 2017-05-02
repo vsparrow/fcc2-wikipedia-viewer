@@ -43,6 +43,12 @@
 }
 
 
+.resultSearchTerm {
+    border: none;
+    text-align: center
+}
+
+
 @media  (max-width: 849px) {
     #searchTerm {
         width: 100%;

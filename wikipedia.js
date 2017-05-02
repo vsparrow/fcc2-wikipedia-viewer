@@ -97,6 +97,8 @@ function displayResults(results){
         '</h1><h1>Please try again</h1></div>';
     }
     else {
+        html += '<div class="result resultSearchTerm"><h1>Results for "' + results[0] + '"</h1></div>'
+        
         for(var i=0;i<results[1].length;i++){
             html += '<div class="result">';
             html += '<a href="'+ results[3][i]  +'"  target="_blank">'
@@ -106,6 +108,7 @@ function displayResults(results){
         
         }    
     }
+    
     document.querySelector("#resultsParent").innerHTML = html;
     document.querySelector("#randomParent").innerHTML = "";
     
