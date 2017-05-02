@@ -50,4 +50,10 @@
     .resultTitle {
         text-align: center;
     }
+    #searchTerm {
+        width: 100%;
+    } 
+    #searchButton {
+        width: 100%;
+    }
 }
