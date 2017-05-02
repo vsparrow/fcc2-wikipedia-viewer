@@ -20,6 +20,12 @@ callWiki        calls wikipedia api with search term.
                     data[3] is a list of links to each article
                 
 parseData()         parses the object received into a more consumable format
+
+displayResuts   displays results received onto document, under div resultsParent
+                each result is in it's own div called result
+                    title and text have their own divs, resultsTitle and resultsText
+                    each div is clickable to open a new page to follow the link associated with it
+
 */
 
 
@@ -42,7 +48,8 @@ function callWiki(searchTerm){
             // console.log(data);
             console.log("Is array::" +Array.isArray(data) );
 
-            parseData(data);
+            // parseData(data);
+            displayResults(data);
         },
         error: function (jqXHR, status, err) {
             console.log("Error: callWiki : ");
@@ -56,29 +63,29 @@ function callWiki(searchTerm){
 // ****************************************************************************** parseData
 // This function may not be needed
 
-function parseData(data){
-    console.log("parseData");
-    console.log(data);
+// function parseData(data){
+//     console.log("parseData");
+//     console.log(data);
     
-    console.log("******** data[0] **************************")
-    // console.log(data[0]);
-    //data[0] is the search term wikipedia used
-    //type String
-    console.log("******** data[1] **************************")
-    // console.log(data[1]);
-    //data[1] is a lsit of article titles that were matched
-    //type Array, each element is a String
-    console.log("******** data[2] **************************")
-    // console.log(data[2]);
-    //data[2] is a list of synopsis of each article
-    //type array, each element is a String
-    console.log("******** data[3] **************************")
-    // console.log(data[3]);    
-    //data[3] is a list of links to each article
-    //type array, each element is a String
-    displayResults(data);
+//     console.log("******** data[0] **************************")
+//     // console.log(data[0]);
+//     //data[0] is the search term wikipedia used
+//     //type String
+//     console.log("******** data[1] **************************")
+//     // console.log(data[1]);
+//     //data[1] is a lsit of article titles that were matched
+//     //type Array, each element is a String
+//     console.log("******** data[2] **************************")
+//     // console.log(data[2]);
+//     //data[2] is a list of synopsis of each article
+//     //type array, each element is a String
+//     console.log("******** data[3] **************************")
+//     // console.log(data[3]);    
+//     //data[3] is a list of links to each article
+//     //type array, each element is a String
+//     displayResults(data);
     
-}
+// }
 
 // ****************************************************************************** displayResults
 
@@ -86,7 +93,7 @@ function displayResults(results){
     // for loop is used to iterate through results. results can be from 1 item up to 10 (default)
     var html = '';
     for(var i=0;i<results[1].length;i++){
-        html += '<div class="results">';
+        html += '<div class="result">';
         html += '<a href="'+ results[3][i]  +'">'
         html += '<div class="resultsTitle">'+results[1][i] +'</div>';
         html += '<div class="resultsText">' + results[2][i] +'</div>';
